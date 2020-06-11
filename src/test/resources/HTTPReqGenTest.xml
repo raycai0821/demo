@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="HTTPReqGenTestSuite" parallel="false">
+	<parameter name="workBook" value="D:/jobs/XML/Http_Request_Workbook_Data.xlsx" />
+	<test name="HTTPReqGenTest">
+    <classes>
+      <class name="com.demo.qa.rest_api_test.TestHttpInterfaceTest"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->

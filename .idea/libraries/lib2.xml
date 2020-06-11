@@ -1,0 +1,46 @@
+<component name="libraryTable">
+  <library name="lib">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/target/lib/groovy-2.3.6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/target/lib/httpclient-4.3.5.jar!/" />
+      <root url="jar://$PROJECT_DIR$/target/lib/snakeyaml-1.6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/target/lib/commons-io-2.4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/target/lib/commons-lang3-3.3.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/target/lib/ezmorph-1.0.6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/target/lib/rest-assured-common-2.3.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/target/lib/hamcrest-library-1.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/target/lib/httpmime-4.3.5.jar!/" />
+      <root url="jar://$PROJECT_DIR$/target/lib/xml-path-2.3.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/target/lib/commons-cli-1.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/target/lib/poi-3.10.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/target/lib/json-20090211.jar!/" />
+      <root url="jar://$PROJECT_DIR$/target/lib/xmlbeans-2.6.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/target/lib/slf4j-simple-1.7.6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/target/lib/bsh-2.0b4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/target/lib/groovy-json-2.3.6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/target/lib/junit-3.8.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/target/lib/json-lib-2.4-jdk15.jar!/" />
+      <root url="jar://$PROJECT_DIR$/target/lib/stax-api-1.0.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/target/lib/testng-6.8.jar!/" />
+      <root url="jar://$PROJECT_DIR$/target/lib/commons-collections-3.2.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/target/lib/commons-logging-1.1.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/target/lib/commons-codec-1.6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/target/lib/dom4j-1.6.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/target/lib/jcommander-1.27.jar!/" />
+      <root url="jar://$PROJECT_DIR$/target/lib/commons-beanutils-1.8.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/target/lib/rest-assured-2.3.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/target/lib/groovy-xml-2.3.6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/target/lib/poi-ooxml-3.10.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/target/lib/commons-lang-2.5.jar!/" />
+      <root url="jar://$PROJECT_DIR$/target/lib/httpcore-4.3.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/target/lib/json-path-2.3.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/target/lib/hamcrest-core-1.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/target/lib/tagsoup-1.2.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/target/lib/jsonassert-1.2.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/target/lib/poi-ooxml-schemas-3.10.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/target/lib/slf4j-api-1.7.7.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
