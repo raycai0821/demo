@@ -16,6 +16,7 @@ import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.testng.annotations.Parameters;
 
 
 public class ExcleUtil {
@@ -23,7 +24,8 @@ public class ExcleUtil {
     private static XSSFWorkbook ExcelWBook;
     private static XSSFCell Cell;
     private static XSSFRow Row;
-    private static String ExcelFilePath="D:\\jobs\\XML\\Http_Request_Workbook_Data.xlsx";
+    private static String ExcelFilePath= "res/i18ntest.xlsx";
+
 
     // 设定要设置的Excel的文件路径和Excel 中Sheet名；
     // 在读/写Excel 的时候先要调用此方法
@@ -77,7 +79,6 @@ public class ExcleUtil {
      * 
      * 
      */
-
     public static void setCellData(int rownum, int colnum, String Result) throws Exception {
 
         try {
@@ -95,6 +96,7 @@ public class ExcleUtil {
                 // 单元格中有内容，则可以直接调用单元格对象的 setCellValue 方法来设置单元格的值；
                 Cell.setCellValue(Result);
             }
+            System.out.println();
             FileOutputStream fileout = new FileOutputStream(ExcelFilePath);
             // 将内容写到Excel文件中 ；
             ExcelWBook.write(fileout);

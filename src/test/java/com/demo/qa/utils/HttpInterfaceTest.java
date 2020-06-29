@@ -19,11 +19,11 @@ import java.util.Map;
 public class HttpInterfaceTest {
 
 
-    public String sendGet(String url, String param) {
+    public String sendGet(String url, String param, String language) {
         String result = "";
         BufferedReader in = null;
         try {
-            String urlName = url + "?" + param;
+            String urlName = url + param;
             System.out.println("Get请求接口:" + urlName);
             URL realUrl = new URL(urlName);
             // 打开和URL之间的连接
@@ -31,7 +31,8 @@ public class HttpInterfaceTest {
             // 设置通用的请求属性
             conn.setRequestProperty("accept", "*/*");
             conn.setRequestProperty("connection", "Keep-Alive");
-            conn.setRequestProperty("user-agent", "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)");
+            conn.setRequestProperty("user-agent", "PostmanRuntime/7.25.0");
+            conn.setRequestProperty("Accept-Language", language);
             // 建立实际的连接
             conn.connect();
             // 获取所有响应头字段
@@ -70,7 +71,7 @@ public class HttpInterfaceTest {
      * @param param 请求参数，请求参数应该是name1=value1&name2=value2的形式或者是json。
      * @return URL所代表远程资源的响应
      */
-    public String sendPost(String url, String param) {
+    public String sendPost(String url, String param, String language) {
         PrintWriter out = null;
         BufferedReader in = null;
         String result = "";
@@ -78,13 +79,14 @@ public class HttpInterfaceTest {
         try {
             URL realUrl = new URL(url);
             // 打开和URL之间的连接
-           
+
             URLConnection conn = realUrl.openConnection();
             // 设置通用的请求属性
             conn.setRequestProperty("accept", "*/*");
             conn.setRequestProperty("connection", "Keep-Alive");
             //conn.setRequestProperty("user-agent", "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)");
             conn.setRequestProperty("Content-Type", "application/json; charset=utf-8");
+            conn.setRequestProperty("Accept-Language", language);
             // 发送POST请求必须设置如下两行
             conn.setDoOutput(true);
             conn.setDoInput(true);
@@ -122,7 +124,7 @@ public class HttpInterfaceTest {
     }
 
 
-    public static void main(String[] args) {
+ /*   public static void main(String[] args) {
 
         HttpInterfaceTest httpInterfaceTest = new HttpInterfaceTest();
 
@@ -150,5 +152,7 @@ public class HttpInterfaceTest {
                 "|  reason="+reason+"    | error_code= "+error_code);
     }
 
-	
+  */
+
+
 }

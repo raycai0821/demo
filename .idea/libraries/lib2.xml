@@ -41,6 +41,8 @@
       <root url="jar://$PROJECT_DIR$/target/lib/slf4j-api-1.7.7.jar!/" />
     </CLASSES>
     <JAVADOC />
-    <SOURCES />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/target/lib/groovy-2.3.6.jar!/" />
+    </SOURCES>
   </library>
 </component>

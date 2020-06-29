@@ -2,4 +2,5 @@
 Host: <<host>>
 Authorization:<<Authorization>>
 Accept:<<Accept>>
-Content-Type:<<Content-Type>>
+Content-Type:<<ContentType>>
+Accept-Language:<<Accept-Language>>

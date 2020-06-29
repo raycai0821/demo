@@ -172,11 +172,9 @@ public class ExcelReader {
 
             if (row != null) {
                 for (int j = 0; j < row.getLastCellNum(); j++) {
-                      //System.out.println("第 "+i+" 行--- row.getLastCellNum()===="+row.getLastCellNum());
                     Cell cell = row.getCell(j);
                     if (i == 0) {
                         o1[j] = this.getCellValue(cell);
-                        //System.out.println(j+"------this.getCellValue(cell)="+this.getCellValue(cell));
                         columnHeaderList.add(getCellValue(cell));
                     } else {
                         o1[j] = this.getCellValue(cell);
@@ -193,21 +191,10 @@ public class ExcelReader {
             result.add(o1);
             listData.add(list);
         }
-        // 测试数据excel数据用 ；
-//         for (int i = 0; i < result.size(); i++) {
-//            for (int j = 0; j < result.get(i).length; j++) {
-//                System.out.print(result.get(i)[j]+" | ");
-//            }
-//            System.out.println();
-//        }
-     
         results = new Object[result.size() - 1][];
-        
-//        System.out.print(result.size());
         for (int i = 0; i < result.size() - 1; i++) {
             results[i] = result.get(i+1);
-//            System.out.println("results.length==" + results.length);
-            //System.out.print(result.get(i+1));
+
         }
         flag = true;
 
@@ -215,7 +202,7 @@ public class ExcelReader {
         return results;
     }
 
-    public static void main(String[] args) {
+/*    public static void main(String[] args) {
     	Object[][] obj1;
         ExcelReader eh = new ExcelReader("D:\\jobs\\XML\\Http_Request_Workbook_Data.xlsx", "Input");
         Object[][] sheetData2 = eh.getSheetData2();
@@ -228,5 +215,5 @@ public class ExcelReader {
         }
 
 
-    }
+    }*/
 }
