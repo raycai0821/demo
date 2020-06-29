@@ -8,78 +8,78 @@ import net.sf.json.JSONException;
 import net.sf.json.JSONObject;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.DataProvider;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.*;
 
 
 public class TestHttpInterfaceTest {
-   public static HttpInterfaceTest ht ;
-    ExcelReader ex ;
+    public static HttpInterfaceTest ht;
+    ExcelReader ex;
     static ExcleUtil excleUtil;
+
     @BeforeTest
-    public void init(){
-        String ExcelFilePath="D:\\jobs\\XML\\Http_Request_Workbook_Data.xlsx";
-        //String ExcelFilePath1="D:\\jobs\\XML\\Http_Request_Workbook_Data1.xlsx";
-        String sheetName="Input";
-        //String sheetName1="Output";
+    @Parameters("workBook")
+    public void init(String path) {
+        String sheetName = "Input";
+        System.out.println(path);
         ht = new HttpInterfaceTest();
-        ex = new ExcelReader(ExcelFilePath, sheetName);
+        ex = new ExcelReader(path, sheetName);
         try {
-            ExcleUtil.setExcleFile(ExcelFilePath,sheetName);
-            //excleUtil.setExcleFile(ExcelFilePath1,sheetName1);
+            ExcleUtil.setExcleFile(path, sheetName);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
     @Test(dataProvider = "dp")
-    public void testSendPost(String ID ,String host, String call_suff, String Authorization,
-    		String body, String expectResponse) throws Exception {
-        System.out.println("rowNum="+ID+"；URL="+host + call_suff+" ;  paras="+body);
+    public void testSendPost(String ID, String call_type, String host, String call_suff,
+                             String AcceptLanguage, String body, String expectResponse) throws Exception {
+        System.out.println("rowNum=" + ID + "；URL=" + host + call_suff + " ;  paras=" + body);
         Integer it = new Integer(ID);
-         int row = it.intValue();
-        if (body.contains("&")){
-            String s1 =  ht.sendPost(host + call_suff,body);
-            ExcleUtil.setCellData(row,5,s1);
+        String s = null;
+        int row = it.intValue();
+        if (body.contains("&")) {
+            //不知道干嘛，没用
+            String s1 = ht.sendPost(host + call_suff, body, AcceptLanguage);
+            ExcleUtil.setCellData(row, 5, s1);
             System.out.println(s1);
-        }else {
+        } else {//正常开始请求
             try {
-            	System.out.println( "----row====" + row);
-                JSONObject jsonObject = JSONObject.fromObject(body);
-                String s  =  ht.sendPost(host + call_suff , jsonObject.toString());
-                if(s.contains(expectResponse) ) {
-                	
-                ExcleUtil.setCellData(row,6,s);
-                ExcleUtil.setCellData(row, 7, "PASS");
-                } else {
-                    ExcleUtil.setCellData(row,6,s);
-                    ExcleUtil.setCellData(row, 7, "FAILED");
+                System.out.println("----row====" + row);
+                //如果case中type为get则调用sendget
+                if (call_type.equals("GET")) {
+                    s = ht.sendGet(host, call_suff, AcceptLanguage);
+                }//否则调用sendpost
+                else {
+                    JSONObject jsonObject = JSONObject.fromObject(body);
+                    s = ht.sendPost(host + call_suff, jsonObject.toString(), AcceptLanguage);
                 }
-                
-                System.out.println(s);
-            }catch (JSONException exception){
+                //判断结果并写入excel
+                if (s.contains(expectResponse)) {
 
-                System.out.println("标题行不能进行转换1！");
+                    ExcleUtil.setCellData(row, 7, s);
+                    ExcleUtil.setCellData(row, 8, "PASS");
+                } else {
+                    ExcleUtil.setCellData(row, 7, s);
+                    ExcleUtil.setCellData(row, 8, "FAILED");
+                }
+
+                System.out.println(s);
+            } catch (JSONException exception) {
+
+                System.out.println("标题行不能进行转换！");
             }
 
         }
-
-
     }
+
     @DataProvider
-    public Object[][] dp(){
-     Object[][] sheetData2 = ex.getSheetData2();
-//           System.out.println(sheetData2.length + "--------1----");
-//        for (int i = 1; i < sheetData2.length; i++) {
-//            for (int j = 0; j < sheetData2[i].length; j++) {
-//                System.out.print(sheetData2[i][j] + " | ");
-//            }
-//            System.out.println();
-//        }
 
-
-        return  sheetData2 ;
+    public Object[][] dp() {
+        Object[][] sheetData = ex.getSheetData2();
+        return sheetData;
 
     }
 
