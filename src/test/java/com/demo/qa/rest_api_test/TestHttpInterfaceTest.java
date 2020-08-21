@@ -76,7 +76,6 @@ public class TestHttpInterfaceTest {
     }
 
     @DataProvider
-
     public Object[][] dp() {
         Object[][] sheetData = ex.getSheetData2();
         return sheetData;
